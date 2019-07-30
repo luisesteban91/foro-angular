@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.avatar_mask {
+    
+}
+
+.avatar_mask img{
+    border-radius: 36px;
+    height: 40px;
+}
