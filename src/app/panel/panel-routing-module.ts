@@ -1,6 +1,8 @@
 //importar los modulos del router
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserGuard } from '../services/user.guard'
+
 
 //importar componentes
 import { MainComponent } from '../panel/components/main/main.component';
@@ -14,6 +16,7 @@ const panelRoutes: Routes = [
     {
         path: 'panel',
         component : MainComponent,
+        canActivate: [UserGuard],
         children: [
             { path: '', component: ListComponent },
             { path: 'listado', component: ListComponent },

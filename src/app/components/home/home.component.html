@@ -5,9 +5,9 @@
         <hr class="my-4">
         <p>Comenta y aprende sobre cualquier lenguaje de programacion</p>
         <p class="lead">
-            <a class="btn btn-primary btn-lg mr-3" href="#" role="button">Ver Temas</a>
-            <a class="btn btn-success btn-lg mr-3" href="#" role="button">Ver compañeros</a>
-            <a class="btn btn-warning btn-lg mr-3" href="#" role="button">Añade un nuevo Tema</a>
+            <a class="btn btn-primary btn-lg mr-3" [routerLink]="['/temas']" role="button">Ver Temas</a>
+            <a class="btn btn-success btn-lg mr-3" [routerLink]="['/usuarios']" role="button">Ver compañeros</a>
+            <a class="btn btn-warning btn-lg mr-3" [routerLink]="['/panel/crear']" role="button">Añade un nuevo Tema</a>
         </p>
     </div>
 </div>

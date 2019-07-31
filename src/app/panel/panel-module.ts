@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { PanelRoutingModule } from './panel-routing-module'
+import { MomentModule } from 'angular2-moment';
 
 //components
 import { MainComponent } from '../panel/components/main/main.component';
@@ -12,6 +13,8 @@ import { EditComponent } from '../panel/components/edit/edit.component';
 import { ListComponent } from '../panel/components/list/list.component'
 
 //Services
+import { UserService } from '../services/user.service'
+import { UserGuard } from '../services/user.guard'
 
 //NgModule
 @NgModule({
@@ -25,7 +28,8 @@ import { ListComponent } from '../panel/components/list/list.component'
       CommonModule,
       FormsModule,
       HttpClientModule,
-      PanelRoutingModule
+      PanelRoutingModule,
+      MomentModule
     ],
     exports: [
         MainComponent,
@@ -34,7 +38,8 @@ import { ListComponent } from '../panel/components/list/list.component'
         EditComponent
     ],
     providers: [
-
+      UserService,
+      UserGuard
     ]
 })
 

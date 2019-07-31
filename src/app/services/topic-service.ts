@@ -11,10 +11,6 @@ export class TopicService{
         this.url = global.url;
     }
 
-    prueba(){
-        return "Hola"
-    }
-
     addTopic(token, topic):Observable<any>{
         let params = JSON.stringify(topic);
         let headers = new HttpHeaders().set('Content-Type', 'application/json')
@@ -27,5 +23,36 @@ export class TopicService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json')
 
         return this._http.get(this.url+'user-topics/'+userId, {headers:headers});
+    }
+
+    getTopic(id):Observable<any>{
+        return this._http.get(this.url+'topic/'+id);
+    }
+
+    update(token, id, topic):Observable<any>{ //el :Observable<any> para cuando se utilize el metodo retorne un dato
+        let params = JSON.stringify(topic);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                      .set('Authorization', token);
+
+        return this._http.put(this.url+'topic/'+id, params, {headers:headers});
+    }
+
+    deleteTopic(token, id):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                      .set('Authorization', token);
+
+        return this._http.delete(this.url+'topic/'+id, {headers:headers});
+    }
+
+    getTopics(page = 1):Observable<any>{
+        return this._http.get(this.url+'topics/'+page)
+    }
+
+    getTopicc(id):Observable<any>{
+        return this._http.get(this.url+'topic/'+id);
+    }
+
+    search(searchString):Observable<any>{
+        return this._http.get(this.url+'search/'+searchString);
     }
 }
